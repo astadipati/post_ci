@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="box-body table-responsive">
-                <table class="table table-bordered table-stripped">
+                <table class="table table-bordered table-stripped" id="table1">
                     <thead>
                         <tr>
                             <th>#</th>
