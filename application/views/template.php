@@ -32,7 +32,7 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
@@ -342,9 +342,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?=site_url('supplier')?>"><i class="fa fa-circle-o"></i> Data Supplier</a></li>
-            <li><a href="<?=base_url()?>assets/pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="<?=base_url()?>assets/pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="<?=base_url()?>assets/pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
           </ul>
         </li>
         <li>
@@ -364,9 +361,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=base_url()?>assets/pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Categories</a></li>
-            <li><a href="<?=base_url()?>assets/pages/charts/morris.html"><i class="fa fa-circle-o"></i> Units</a></li>
-            <li><a href="<?=base_url()?>assets/pages/charts/flot.html"><i class="fa fa-circle-o"></i> Items</a></li>
+            <li><a href="<?=site_url('category')?>"><i class="fa fa-circle-o"></i> Categories</a></li>
+            <li><a href="<?=site_url('unit')?>"><i class="fa fa-circle-o"></i> Units</a></li>
+            <li><a href="<?=site_url('item')?>"><i class="fa fa-circle-o"></i> Items</a></li>
           </ul>
         </li>
         <li class="treeview">
