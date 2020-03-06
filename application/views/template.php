@@ -348,7 +348,7 @@
           </ul>
         </li>
         <li>
-          <a href="<?=base_url()?>assets/pages/widgets.html">
+          <a href="<?=site_url('customer')?>">
             <i class="fa fa-th"></i> <span>Customers</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
