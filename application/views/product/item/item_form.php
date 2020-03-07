@@ -11,6 +11,7 @@
 
     <!-- Main content -->
     <section class="content">
+    <?php $this->view('message');?>
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title"><?=ucfirst($page)?> item</h3>
@@ -25,7 +26,7 @@
                         <form action="<?=site_url('item/process')?>" method="post">
                             <div class="form-group ">
                                 <label for="">Barcode </label>
-                                <input type="hidden" name="item_id" value="<?=$row->item_id?>">
+                                <input type="hidden" name="id" value="<?=$row->item_id?>">
                                 <input type="text" name="barcode" value="<?=$row->barcode?>" class="form-control" required>
                             </div>
                             <div class="form-group ">
@@ -34,10 +35,12 @@
                             </div>
                             <div class="form-group ">
                                 <label for="">Kategori *</label>
-                                <select name="category" id="" class="form-control">
+                                <select name="category" id="" class="form-control" required>
                                 <option value="">__pilih__</option>
                                 <?php foreach($category->result() as $key =>$data) {?>
-                                    <option value="<?=$data->category_id?>"><?=$data->name?></option>
+                                    <option value="<?=$data->category_id?>" 
+                                    <?=$data->category_id == $row->category_id ? "selected" : null ?> >
+                                    <?=$data->name?></option>
                                 <?php } ?>
                                 </select>
                             <div class="form-group ">
