@@ -23,7 +23,7 @@
             <div class="box-body ">
                 <div class="row">
                     <div class="col-md-4 col-md-offset-4">
-                        <form action="<?=site_url('item/process')?>" method="post">
+                    <?php echo form_open_multipart('item/process') ?>
                             <div class="form-group ">
                                 <label for="">Barcode </label>
                                 <input type="hidden" name="id" value="<?=$row->item_id?>">
@@ -52,11 +52,24 @@
                                 <label for="">Price *</label>
                                 <input type="number" name="price" value="<?=$row->price?>" class="form-control" required>
                             </div>
+                            <div class="form-group ">
+                                <label for="">Image </label>
+                                <?php if($page== 'edit') {
+                                        if($row->image != null){?>
+                                        <div style="margin-bottom:5px">
+                                            <img src="<?=base_url('uploads/product/'.$row->image)?>" style="width:80%">
+                                        </div>
+                                        <?php }
+                                        } ?>
+                                <input type="file" name="image"  class="form-control" >
+                                <small>(Biarkan kosong jika tidak <?=$page == 'edit' ? 'diganti' : 'ada'?>)</small>
+                            </div>
                             <div class="form-group">
                                 <button class="btn btn-success btn-flat" type="submit" name="<?=$page?>"><i class="fa fa-paper-plane"></i> Submit</button>
                                 <button class="btn btn-flat" type="resett"><i class="fa fa-xing"></i> Reset</button>
                             </div>
-                        </form>
+                        <!-- </form> -->
+                        <?php echo form_close() ?>
                     </div>
                 </div>
             </div>
