@@ -17,6 +17,13 @@ class item extends CI_Controller {
 	}
 
 	public function del($id){
+
+		$item = $this->item_m->get($id)->row();
+		if($item->image != null){
+			$target_file = './uploads/product/'.$item->image;
+			unlink($target_file);
+		}
+
 		$this->item_m->del($id);
 		if($this->db->affected_rows() > 0 ){
 			// echo "<script> alert('Data berhasil dihapus') </script>";
@@ -124,6 +131,13 @@ class item extends CI_Controller {
 			}else{
 				if(@$_FILES['image']['name'] != null){
 					if($this->upload->do_upload('image')){
+						
+						$item = $this->item_m->get($post['id'])->row();
+						if($item->image != null){
+							$target_file = './uploads/product/'.$item->image;
+							unlink($target_file);
+						}
+
 						$post['image'] = $this->upload->data('file_name');
 						$this->item_m->edit($post);
 						if($this->db->affected_rows() > 0 ){
