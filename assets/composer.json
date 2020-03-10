@@ -26,7 +26,8 @@
   },
   "require": {
     "bower-asset/jquery": ">=1.9.0 <4.0.0",
-    "picqer/php-barcode-generator": "^0.3.0"
+    "picqer/php-barcode-generator": "^0.3.0",
+    "endroid/qr-code": "^3.5"
   },
   "repositories": [
     {
