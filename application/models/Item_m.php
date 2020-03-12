@@ -2,6 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 Class Item_m extends CI_Model{
+
+
     public function get($id = null){
         $this->db->select('a.*, b.name as category_name, c.name as unit_name');
         $this->db->from('item as a');
@@ -56,5 +58,21 @@ Class Item_m extends CI_Model{
         }
         $query = $this->db->get();
         return $query;
+    }
+
+    // update stok
+    function update_stock_in($data){
+        $qty = $data['qty'];
+        $id = $data['item_id'];
+        $sql = "UPDATE item SET stock = stock + '$qty' WHERE item_id = '$id' ";
+        $this->db->query($sql);
+    }
+    
+    function update_stock_out($data){
+        $qty = $data['qty'];
+        $id = $data['item_id'];
+        $sql = "UPDATE item SET stock = stock - '$qty' WHERE item_id = '$id' ";
+        $this->db->query($sql);
+
     }
 }

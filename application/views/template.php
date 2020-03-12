@@ -371,7 +371,7 @@
             <li <?=$this->uri->segment(1) == 'item' ? 'class="active"' : '' ?>><a href="<?=site_url('item')?>"><i class="fa fa-circle-o"></i> Items</a></li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview <?=$this->uri->segment(1) == 'stock' ? 'active' : ''?>">
           <a href="<?=base_url()?>assets/#">
             <i class="fa fa-laptop"></i>
             <span>Transactions</span>
@@ -381,8 +381,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?=base_url()?>assets/pages/UI/general.html"><i class="fa fa-circle-o"></i> Sales</a></li>
-            <li><a href="<?=base_url()?>assets/pages/UI/icons.html"><i class="fa fa-circle-o"></i> Stock In</a></li>
-            <li><a href="<?=base_url()?>assets/pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Stock Out</a></li>
+            <li <?=$this->uri->segment(1) == 'stock' && $this->uri->segment(2) == 'in' ? 'class="active"' : '' ?>><a href="<?=site_url('stock/in')?>"><i class="fa fa-circle-o"></i> Stock In</a></li>
+            <li><a href="<?=site_url('stock/stock_in_form')?>"><i class="fa fa-circle-o"></i> Stock Out</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -407,6 +407,8 @@
     <!-- /.sidebar -->
   </aside>
 
+<!-- jQuery 3 -->
+<script src="<?=base_url()?>assets/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     
@@ -619,8 +621,6 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery 3 -->
-<script src="<?=base_url()?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?=base_url()?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
@@ -644,7 +644,7 @@
 <script src="<?=base_url()?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?=base_url()?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?=base_url()?>assets/dist/js/pages/dashboard2.js"></script>
+<!-- <script src="<?=base_url()?>assets/dist/js/pages/dashboard2.js"></script> -->
 <!-- AdminLTE for demo purposes -->
 <script src="<?=base_url()?>assets/dist/js/demo.js"></script>
 
