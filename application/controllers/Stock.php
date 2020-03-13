@@ -24,6 +24,33 @@ class Stock extends CI_Controller {
         $this->template->load('template','transaction/stock_in/stock_in_form', $data);
     }
 
+    public function stock_in_data_log(){
+        $data['row'] = $this->stock_m->get_stok_in();
+        $this->template->load('template','transaction/stock_log',$data);
+    }
+     
+    public function add_log(){
+        $data_ne = $this->input->post('data_log');
+        for($i=0; $i < sizeof($data_ne); $i++){
+            $data = array('stock_id' => $data_ne[$i]);
+            $this->db->insert('stock_log', $data);
+        }
+        $this->session->set_flashdata('success','Data stok berhasil disimpan');
+        // if($this->db->affected_rows() > 0 ){
+        // }
+        redirect('stock/log');
+    }
+
+    public function stock_in_add_log(){
+        $item = $this->item_m->get()->result();
+        $supplier = $this->supplier_m->get()->result();
+        $data = [
+            'item' => $item,
+            'supplier' => $supplier
+            ];
+        $this->template->load('template','transaction/stock_in/stock_in_form', $data);
+    }
+
     public function stock_in_del(){
         $stock_id = $this->uri->segment(4);
         $item_id = $this->uri->segment(5);

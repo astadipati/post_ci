@@ -16,7 +16,7 @@ Class Stock_m extends CI_Model{
         $this->db->where('stock_id', $id);
         $this->db->delete('t_stock');
     }
-
+ 
     public function get_stok_in(){
         $this->db->select('a.stock_id, b.item_id, b.barcode, b.name as item_name, b.price as price,a.detail, c.name as supplier_name, a.qty, a.date, d.name as user_name');
         $this->db->from('t_stock as a');

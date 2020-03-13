@@ -15,13 +15,18 @@
     <div class="box">
         <div class="box-header">
             <h3 class="box-title"> Stock In</h3>
+            <!-- <form action="<?=base_url()?>stock/add_log" method="post"> -->
+            <form action="<?=site_url('stock/add_log')?>" method="post">
             <div class="pull-right">
-                <a href="<?=site_url('stock/in/add')?>" class="btn btn-warning btn-flat">
-                    <i class="fa fa-undo"></i> Create Stock</a>
+            <button class="btn btn-primary btn-flat" type="submit" name="submit"> Tambah Selected</button>
             </div>
+            <!-- <div class="pull-right">
+                <a href="<?=site_url('stock/in')?>" class="btn btn-warning btn-flat">
+                    <i class="fa fa-undo"></i> Back</a>
+            </div> -->
         </div>
         <div class="box-body table-responsive">
-            <table class="table table-bordered table-stripped" id="table1">
+            <table class="table table-bordered table-stripped" id="">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -32,6 +37,7 @@
                         <th>Price</th>
                         <th>Date</th>
                         <th>User</th>
+                        <th>Check</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -48,6 +54,7 @@
                         <td><?=$data->price?></td>
                         <td><?=indo_date($data->date)?></td>
                         <td><?=$data->user_name?></td>
+                        <td><input type="checkbox" name="data_log[]" value="<?=$data->stock_id?>"></td>
                         <td class="text-center" width="160px">
                             <a id="set_dtl" class="btn btn-default btn-xs" 
                                 data-toggle="modal" data-target="#modal-detail"
@@ -66,6 +73,7 @@
                     <?php } ?>
                 </tbody>
             </table>
+            </form>
         </div>
     </div>
 </section>

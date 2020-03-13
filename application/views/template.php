@@ -20,6 +20,11 @@
   <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/jvectormap/jquery-jvectormap.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/AdminLTE.min.css">
+
+  <!-- sweat alert -->
+
+  <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
+    <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/skins/_all-skins.min.css">
@@ -383,6 +388,7 @@
             <li><a href="<?=base_url()?>assets/pages/UI/general.html"><i class="fa fa-circle-o"></i> Sales</a></li>
             <li <?=$this->uri->segment(1) == 'stock' && $this->uri->segment(2) == 'in' ? 'class="active"' : '' ?>><a href="<?=site_url('stock/in')?>"><i class="fa fa-circle-o"></i> Stock In</a></li>
             <li><a href="<?=site_url('stock/stock_in_form')?>"><i class="fa fa-circle-o"></i> Stock Out</a></li>
+            <li <?=$this->uri->segment(1) == 'stock' && $this->uri->segment(2) == 'log' ? 'class="active"' : '' ?>><a href="<?=site_url('stock/log')?>"><i class="fa fa-circle-o"></i> Stock Log</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -409,6 +415,8 @@
 
 <!-- jQuery 3 -->
 <script src="<?=base_url()?>assets/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     

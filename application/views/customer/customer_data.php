@@ -45,8 +45,10 @@
                             <td class="text-center" width="160px">
                                 <a href="<?=site_url('customer/edit/').$data->customer_id?>" class="btn btn-warning btn-xs">
                                 <i class="fa fa-pencil"></i> Edit</a>
-                                <a href="<?=site_url('customer/del/').$data->customer_id?>" onclick="return confirm('Apakah Anda yakin?')" class="btn btn-danger btn-xs">
-                                <i class="fa fa-trash"></i> Delete</a>
+                                <button type="submit" class="btn btn-danger btn-xs remove"> Delete</button>
+                                <!-- <a href="<?=site_url('customer/del/').$data->customer_id?>" onclick="return confirm('Apakah Anda yakin?')" 
+                                class="btn btn-danger btn-xs remove">
+                                <i class="fa fa-trash"></i> Delete</a> -->
                             </td>
                         </tr>
                         <?php } ?>
@@ -54,5 +56,48 @@
                 </table>
             </div>
         </div>
-      
     </section>
+
+<script type="text/javascript">
+$(".remove").click(function(){
+    var id = $(this).parents("tr").attr("<?=$data->customer_id?>");
+
+    swal({
+    title: "Yakin?",
+    text: "Data akan dihapus secara permanen",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonClass: "btn-danger",
+    confirmButtonText: "Hapus",
+    cancelButtonText: "Tidak",
+    closeOnConfirm: false,
+    closeOnCancel: false
+    },
+    function(isConfirm) {
+    if (isConfirm) {
+        $.ajax({
+            url: '<?=site_url('customer/del/'.$data->customer_id)?>',
+            type: 'DELETE',
+            error: function() {
+            alert('Something is wrong');
+            },
+            success: function(data) {
+                $("#"+id).remove();
+                swal({
+                    title: "Data Berhasil Dihapus",
+                    text: "Kembali ke halaman Customer",
+                    type: "success"},
+                    function(){
+                    window.location='customer'
+                    });
+
+                // swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                // window.location.reload();
+            }
+        });
+    } else {
+        swal("Cancelled", "Data tidak dihapus :')", "error");
+    }
+    }); 
+});
+</script>
